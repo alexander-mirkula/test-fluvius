@@ -1,0 +1,8 @@
+.days-holder {
+  display: flex;
+  flex-wrap: wrap;
+}
+.day {
+  margin: 3px;
+  min-width: 48px;
+}

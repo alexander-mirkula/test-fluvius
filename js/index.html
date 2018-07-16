@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Test</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+		/*
+		* Task 1
+		*/
+		// const list = [10, 20, 30];
+
+		// function changeElements(list) {
+		// 	[ list[0], list[1] ] = [ list[1], list[0] ];
+		// }
+
+		// changeElements(list);
+
+		// console.log(list); // [20, 10, 30];
+
+		/*
+		* Task 2
+		*/
+		const list = [30, -5, 0, 10, 5];
+
+		function mySort(list) {
+
+		 	for(let i=0; i < list.length - 1; i++) {
+
+		 		for(let j=0; j < list.length - 1; j++) {
+		 			if(list[j] > list[j +1 ]) {
+		 				[ list[j], list[j + 1] ] = [ list[j + 1], list[j] ];	
+		 			}
+		 		}
+
+		 	}
+
+		}
+
+		mySort(list);
+
+		console.log(list); // [-5, 0, 5, 10, 30]
+
+		/*
+		* Task 3
+		*/
+		var func1 = function(message) {
+			return this(message);
+		}
+
+		var func2 = func1.bind(alert);
+		// func2('Test'); // alert 'Test'
+
+		function myBind(func, context) {
+			var bindArgs = Array.prototype.slice.call(arguments, 2);
+		  	
+		  	return function() {
+		    	var funcArgs = Array.prototype.slice.call(arguments);
+
+		    	return func.apply(context, bindArgs.concat(funcArgs));
+		  	};
+
+		}
+
+		var func3 = myBind(func1, alert);
+		func3('Test'); // alert 'Test'
+
+		</script>
+	</body>
+</html>
